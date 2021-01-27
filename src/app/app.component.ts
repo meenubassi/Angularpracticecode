@@ -1,3 +1,4 @@
+import { areAllEquivalent } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,8 +10,9 @@ export class AppComponent {
   title = 'My First Angular';
   sucess_msg= true;
 
+colortest='Pink';
   days='Thursday';
-  
+  setcolor= "yellow";
   contacts=[
     {
     'firstname':'Siain',

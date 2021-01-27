@@ -52,4 +52,7 @@
 </div>
 <h3 style="background-color: coral;"> Usage of ngStyle</h3>
 <div [ngStyle]="{'background-color':'green', 'color':'white'}">This the first use of style on div</div>
+
+<div [ngStyle]="{'background-color': setcolor}">dynamically usage of ng style</div>
+<div [ngStyle]="{'background-color': colortest== 'red'? 'yellow' : 'blue'}">condition color style</div>
 <router-outlet></router-outlet>
