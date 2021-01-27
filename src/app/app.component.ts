@@ -6,5 +6,42 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'firstangulartest';
+  title = 'My First Angular';
+  sucess_msg= true;
+
+  days='Thursday';
+  
+  contacts=[
+    {
+    'firstname':'Siain',
+    'designation': 'programmer',
+    'city': 'Slough'
+  },
+  {
+    'firstname':'Davis',
+    'designation': 'Developer',
+    'city': 'Reading'
+  },
+  {
+    'firstname':'John',
+    'designation': 'programmer',
+    'city': 'Slough'
+  },
+  {
+    'firstname':'Michal',
+    'designation': 'Developer',
+    'city': 'Reading'
+  },
+  {
+    'firstname':'Gagan',
+    'designation': 'programmer',
+    'city': 'Slough'
+  },
+  {
+    'firstname':'Shivang',
+    'designation': 'Developer',
+    'city': 'Reading'
+  }
+]
+
 }
