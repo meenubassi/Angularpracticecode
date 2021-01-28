@@ -8,11 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My First Angular';
-  sucess_msg= true;
-
+  imgurl='..\src\app\im.png';
+  hrlink='http://www.google.com';
+  altext='sorry';
+  sucess_msg= false;
+  IsLoggedIn= true;
+userObject = {'firstname': 'ams'};//object
 colortest='Pink';
-  days='Thursday';
+  days='monday';
   setcolor= "yellow";
+  styleclass='div1_class';
+  
+colval='blue';
   contacts=[
     {
     'firstname':'Siain',

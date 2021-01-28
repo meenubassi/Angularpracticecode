@@ -1,36 +1,37 @@
 <h1 class="c1">{{title}}</h1>
+<h2 [ngStyle]="{'background-color':'gray'}">using ngClass</h2>
+<div [ngClass]="'div2_class'">class passing String</div>
+<div [ngClass]="'c2 div1_class'">class passing multiple classes</div>
+<div [ngClass]="styleclass">Define class using variables</div>
+<div [ngClass]= "styleclass==='c1'?'c2':'div2_class'">passing values with condition variable in a class</div>
+<div [ngClass]="{c1:true, c2:false}">Define class using objects</div>
+<div *ngIf="sucess_msg">
+  
 
-<div style="background-color: aquamarine;" *ngIf="sucess_msg; then then_msg; else error_msg">
-  User login sucessfully
+{{userObject.firstname}}
 </div>
-<ng-template #then_msg>this is the first user</ng-template>
-<ng-template #error_msg>user is not added</ng-template>
-<h2>Learning NgFor</h2>
+<h1 [innerHTML]="userObject.firstname"></h1>
+<a [href]="hrlink">this is link</a>
+<img [src]="imgurl" [alt]="altext"/>
 
-<ul>
-  <li *ngFor="let contact of contacts; index as i; first as f;last as l">
-    <div *ngIf="f" style="background-color: rgb(82, 132, 136);">first name is here</div>
-  <div>
-    {{contact.firstname}} {{contact.designation}}{{contact.city}}</div>
-    <div *ngIf="l" style="background-color:darkseagreen;">last name is here
-    </div>
+<h1> ngfor Interpolation</h1>
 
-  </li>
-  
-</ul>
-<p>Use of even and odd function</p>
-<ul>
-  <li *ngFor="let contact of contacts; index as i; even as e;odd as o">
-    <div *ngIf="e" style="background-color: rgb(82, 132, 136);">
-  
-    {{contact.firstname}} {{contact.designation}}{{contact.city}}</div>
-    <div *ngIf="o" style="background-color:gainsboro;">
-     
-    {{contact.firstname}} {{contact.designation}}{{contact.city}} 
-</div>
-  </li>
-  
-</ul>
+<table>
+  <tr [ngClass]="'c1'">
+    <th>
+      Firstname
+    </th>
+    <th>Designation</th>
+    <th>City</th>
+    </tr>
+    <tr *ngFor="let contact of contacts" >
+      <td style="background: aquamarine; border: black;" [title]="contact.firstname">{{contact.firstname}}</td>
+      <td>{{contact.designation}}</td>
+      <td style="background: aquamarine; border: black;">{{contact.city}}</td>
+    </tr>
+</table>
+
+
 
 
 
@@ -43,10 +44,10 @@
   this is the section for ngSwitch learning
 </h1>
 <div [ngSwitch]="days">
-<div *ngSwitchCase="'Monday'">today is monday</div>
+<div *ngSwitchCase="'monday'">today is {{days}}</div>
 <div *ngSwitchCase="'Tuesday'">today is Tuesday</div>
 <div *ngSwitchCase="'Wedday'">today is Wednesday</div>
-<div *ngSwitchCase="'Thursday'">today is Thursday</div>
+<div *ngSwitchCase="'Thursday'">today is {{days}}</div>
 <div *ngSwitchCase="'Friday'">today is Friday</div>
 <div *ngSwitchDefault>Weekens!!!!!!!!!!></div>
 </div>
@@ -54,6 +55,6 @@
 <div [ngStyle]="{'background-color':'green', 'color':'white'}">This the first use of style on div</div>
 
 <div [ngStyle]="{'background-color': setcolor}">dynamically usage of ng style</div>
-<div [ngStyle]="{'background-color': colortest== 'red'? 'yellow' : 'blue'}">condition color style</div>
-
+<div [ngStyle]="{'background-color': colortest=== 'red'? 'yellow' : 'blue'}">condition color style</div>
+<h1 [style.color]="colval">helo</h1>
 <router-outlet></router-outlet>
