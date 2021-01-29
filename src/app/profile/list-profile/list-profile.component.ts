@@ -11,5 +11,6 @@ export class ListProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }

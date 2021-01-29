@@ -1,15 +1,22 @@
 <h1 class="c1">{{title}}</h1>
-<h2 [ngStyle]="{'background-color':'gray'}">using ngClass</h2>
-<div [ngClass]="'div2_class'">class passing String</div>
-<div [ngClass]="'c2 div1_class'">class passing multiple classes</div>
-<div [ngClass]="styleclass">Define class using variables</div>
-<div [ngClass]= "styleclass==='c1'?'c2':'div2_class'">passing values with condition variable in a class</div>
-<div [ngClass]="{c1:true, c2:false}">Define class using objects</div>
+
+
+<button (click)="sayhello(1,2)">Click here!</button>
+<h1 (mouseover)="mouover()">Mouseover event</h1>
+<input type="text" (focus)="inputbox()">
 <div *ngIf="sucess_msg">
   
 
 {{userObject.firstname}}
 </div>
+<div>{{dateg | date:'MM-dd-yy'}}</div>
+<div>{{currencyeg | currency: 'USD'| uppercase}}</div>
+<div>{{dateg|date| uppercase}}
+
+</div>
+
+<input [(ngModel)]="username"/>
+<div *ngIf="month>2">{{username}}</div>
 <h1 [innerHTML]="userObject.firstname"></h1>
 <a [href]="hrlink">this is link</a>
 <img [src]="imgurl" [alt]="altext"/>

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HighlightsDirective } from './highlights.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { HighlightsDirective } from './highlights.directive';
     HighlightsDirective
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     
