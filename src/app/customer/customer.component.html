@@ -1,0 +1,18 @@
+<p>customer works!</p>
+<form #customerform= "ngForm" (submit)="addcustomer(customerform)">
+    <input type="text" [(ngModel)]="firstname" name="firstname" minlength="4">
+  
+    <br/>
+    <input type="checkbox" [(ngModel)]="terms" name="terms" required>
+    <br/>
+    <input type="radio" [(ngModel)]="sex" name="sex" checked>
+    <br/>
+    <select [(ngModel)]="category" name="category"  >
+        <option>premium</option>
+        <option>standard</option>
+    </select>
+    <br/>
+    <button type="submit" [disabled]="!customerform.valid">submit</button>
+    <button (click)="resetcustomer(customerform)" class="btn btn-link" >resetform</button>
+ 
+</form>

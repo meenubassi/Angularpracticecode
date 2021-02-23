@@ -39,6 +39,7 @@ mouover()
 }
 inputbox()
 {console.log("I will focus");};
+
   contacts=[
     {
     'firstname':'Siain',
@@ -70,6 +71,6 @@ inputbox()
     'designation': 'Developer',
     'city': 'Reading'
   }
-]
-
+];
 }
+

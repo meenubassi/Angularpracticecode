@@ -8,24 +8,40 @@ import { HighlightsDirective } from './highlights.directive';
 import { FormsModule } from '@angular/forms';
 import { LoansComponent } from './loans/loans.component';
 import { AddLoansComponent } from './add-loans/add-loans.component';
-import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import{ SearchService} from './search.service';
+
+import { CustomerComponent } from './customer/customer.component';
+
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { ImageslideComponent } from './imageslide/imageslide.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HighlightsDirective,
     LoansComponent,
-    AddLoansComponent
+    AddLoansComponent,
+    
+    CustomerComponent,
+    
+    ImageslideComponent,
+    
+
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule, 
+    CarouselModule,
     
-    BrowserAnimationsModule
+  
   ],
   providers: [
-    { provide: LocationStrategy, useClass: PathLocationStrategy}
+    { provide: LocationStrategy, useClass: PathLocationStrategy,},
+    [SearchService]
   ],
   bootstrap: [AppComponent]
 })
