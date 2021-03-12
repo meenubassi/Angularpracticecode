@@ -4,6 +4,7 @@ import { AddLoansComponent } from './add-loans/add-loans.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminGuard } from './admin.guard';
 import { AuthGuard } from './auth.guard';
+import { BoardingComponent } from './boarding/boarding.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ImageslideComponent } from './imageslide/imageslide.component';
 
@@ -60,6 +61,8 @@ const routes: Routes = [
   { path: 'payments', canLoad:[ Paymentcheck1Guard], loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) },
   { path: 'admin-edit', loadChildren: () => import('./admin-edit/admin-edit.module').then(m => m.AdminEditModule) },
   {path: 'customer', component: CustomerComponent},
+  {path: 'boarding', component: BoardingComponent},
+
   {path:'image', component: ImageslideComponent},
   
   {

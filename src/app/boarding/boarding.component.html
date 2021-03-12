@@ -1,0 +1,81 @@
+<div class="main">
+  <div class="navigation-steps">
+    <div class="logo-box">
+      <span class="bold">RecommnedationEngine</span>
+      <span class="light">Application</span>
+    </div>
+    <ul class="steps" *ngrxLet="stepList$ as list">
+      <ng-container *ngFor="let item of list; index as i; trackBy: trackByFn">
+        <li class="steps__item" #itemRef [ngStyle]="collapse(item, itemRef)">
+          <div
+            class="item"
+            [ngClass]="{
+              progress: item.status === IN_PROGRESS,
+              finished: item.status === FINISHED
+            }"
+          >
+            <div
+              class="item--status"
+              *ngIf="item.status === FINISHED; else unfinished"
+            >
+              <svg class="icon icon-check">
+                <use attr.href="./src/assets/icons.svg#icon-check-alt"></use>
+              </svg>
+            </div>
+            <ng-template #unfinished>
+              <div class="item--status">
+                <span class="icon-empty">{{ i + 1 }}</span>
+              </div>
+            </ng-template>
+            <div class="item--name">{{ item.title }}</div>
+          </div>
+          <ng-container *ngIf="item.subStep && item.subStep.length > 0">
+            <!-- sub navigation -->
+            <ul class="step-nested" [ngClass]="{ collapsed: item.collapsed }">
+              <li
+                class="step-nested__item"
+                *ngIf="item.data"
+                [ngClass]="{ progress: item.data.status === IN_PROGRESS }"
+              >
+                <span>{{ item.data.title }}</span>
+                <span *ngIf="item.data.status === IN_PROGRESS">&rarr;</span>
+              </li>
+              <ng-container *ngFor="let subStep of item.subStep">
+                <li
+                  class="step-nested__item"
+                  [ngClass]="{ progress: subStep.status === IN_PROGRESS }"
+                >
+                  <span>{{ subStep.title }}</span>
+                  <span *ngIf="subStep.status === IN_PROGRESS">&rarr;</span>
+                </li>
+              </ng-container>
+            </ul>
+          </ng-container>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="content">
+      <ng-container *ngrxLet="currentStepIndex$ as step">
+        <div #el [ngSwitch]="(selectedStep$ | async)?.type">
+          <app-choose-company *ngSwitchCase="type.COMPANY_TYPE"></app-choose-company>
+          <app-choose-state *ngSwitchCase="type.STATE"></app-choose-state>
+          <app-business-details *ngSwitchCase="type.BUSINESS_DETAILS"></app-business-details>
+          <app-business-details-about *ngSwitchCase="type.BUSINESS_DETAILS_ABOUT"></app-business-details-about>
+          <app-team *ngSwitchCase="type.TEAM"></app-team>
+          <div *ngSwitchDefault>
+            <p class="not-found">No step found for type {{(selectedStep$ | async)?.title}} :(</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--prev" (click)="prev(step, el)">
+            Previous Step
+          </button>
+          <button class="btn btn--next" (click)="update(step, el)">Next</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
